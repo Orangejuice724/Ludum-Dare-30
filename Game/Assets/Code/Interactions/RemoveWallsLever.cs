@@ -21,7 +21,7 @@ public class RemoveWallsLever : MonoBehaviour {
 		{
 			if(Input.GetKeyDown(KeyCode.E))
 			{
-				if(transform.rotation.y == 180)
+				if(transform.rotation.y >= 1)
 					transform.localRotation = Quaternion.Euler(180, 180, 0);
 				else
 					transform.localRotation = Quaternion.Euler(180, 0, 0);

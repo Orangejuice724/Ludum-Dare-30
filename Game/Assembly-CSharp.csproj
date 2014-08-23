@@ -53,6 +53,7 @@
      <Compile Include="Assets\Code\Interactions\CrateController.cs" />
      <Compile Include="Assets\Code\Interactions\CrateLever.cs" />
      <Compile Include="Assets\Code\Interactions\GravityLever.cs" />
+     <Compile Include="Assets\Code\Interactions\HoldableObject.cs" />
      <Compile Include="Assets\Code\Interactions\Lava.cs" />
      <Compile Include="Assets\Code\Interactions\Portal.cs" />
      <Compile Include="Assets\Code\Interactions\RemoveWallsLever.cs" />

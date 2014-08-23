@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour {
 
 		//temporary
 		if(Input.GetKeyDown(KeyCode.Keypad7))
-		   Application.LoadLevel(7);
+		   Application.LoadLevel(9);
 	}
 
 	//This will be used only if the reset button is pressed when you're on level one, it's a work around as a few components have DontDestroyOnLoad()

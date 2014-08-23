@@ -5,9 +5,16 @@ public class PlayerController : MonoBehaviour {
 
 	public float maxSpeed = 10f;
 	public float jumpForce = 700f;
-	bool facingRight = false;
+	[HideInInspector]
+	public bool facingRight = false;
 
 	public bool Active = false;
+
+	public SpriteRenderer drawMe;
+
+	[HideInInspector]
+	public bool holdingObject;
+	public Sprite Normal, Holding;
 
 	bool grounded = false;
 	public Transform groundCheck;
@@ -49,6 +56,14 @@ public class PlayerController : MonoBehaviour {
 
 		if (transform.position.y <= -64)
 			Application.LoadLevel (Application.loadedLevel);
+
+		if(holdingObject)
+			drawMe.sprite = Holding;
+		else
+			drawMe.sprite = Normal;
+
+		//if(Input.GetKeyDown(KeyCode.F))
+			//holdingObject = !holdingObject;
 	}
 
 	void Flip()
