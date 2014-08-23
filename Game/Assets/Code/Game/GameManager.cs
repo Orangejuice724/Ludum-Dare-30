@@ -14,6 +14,42 @@ public class GameManager : MonoBehaviour {
 	//[HideInInspector]
 	public bool finishedone,finishedtwo;
 
+	void Awake()
+	{
+		finishedone = false;
+		finishedtwo = false;
+		if(UniverseOne == null)
+		{
+			UniverseOne = GameObject.FindGameObjectWithTag("UniverseOne").GetComponent<PlayerController>();
+		}
+		if(UniverseTwo == null)
+		{
+			UniverseTwo = GameObject.FindGameObjectWithTag("UniverseTwo").GetComponent<PlayerController>();
+		}
+		
+		UniverseOne.Active = true;
+		UniverseTwo.Active = false;
+		GameCamera.target = UniverseOne.transform;
+	}
+
+	public void Reset()
+	{
+		finishedone = false;
+		finishedtwo = false;
+		if(UniverseOne == null)
+		{
+			UniverseOne = GameObject.FindGameObjectWithTag("UniverseOne").GetComponent<PlayerController>();
+		}
+		if(UniverseTwo == null)
+		{
+			UniverseTwo = GameObject.FindGameObjectWithTag("UniverseTwo").GetComponent<PlayerController>();
+		}
+		
+		UniverseOne.Active = true;
+		UniverseTwo.Active = false;
+		GameCamera.target = UniverseOne.transform;
+	}
+
 	void Start () {
 		DontDestroyOnLoad (this.gameObject);
 		UniverseOne.Active = true;
@@ -33,7 +69,12 @@ public class GameManager : MonoBehaviour {
 		}
 
 		if(Input.GetKeyDown (KeyCode.R))
-			Application.LoadLevel(Application.loadedLevel);
+		{
+			if(level == 1)
+				RestartLevelOne();
+			else
+				Application.LoadLevel(Application.loadedLevel);
+		}
 
 		if(UniverseOne == null)
 		{
@@ -51,6 +92,31 @@ public class GameManager : MonoBehaviour {
 
 		if(!UniverseOne.Active && !UniverseTwo.Active)
 			UniverseOne.Active = true;
+	}
+
+	//This will be used only if the reset button is pressed when you're on level one, it's a work around as a few components have DontDestroyOnLoad()
+	void RestartLevelOne()
+	{
+		Vector3 uOne = new Vector3(1, -2, 0);
+		Vector3 uTwo = new Vector3(111, -2, 0);
+
+		UniverseOne.transform.position = uOne;
+		UniverseTwo.transform.position = uTwo;
+
+		finishedone = false;
+		finishedtwo = false;
+		if(UniverseOne == null)
+		{
+			UniverseOne = GameObject.FindGameObjectWithTag("UniverseOne").GetComponent<PlayerController>();
+		}
+		if(UniverseTwo == null)
+		{
+			UniverseTwo = GameObject.FindGameObjectWithTag("UniverseTwo").GetComponent<PlayerController>();
+		}
+		
+		UniverseOne.Active = true;
+		UniverseTwo.Active = false;
+		GameCamera.target = UniverseOne.transform;
 	}
 
 	public void UpdateUniverse()
