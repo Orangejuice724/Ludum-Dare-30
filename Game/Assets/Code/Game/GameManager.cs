@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
 
-	[HideInInspector]
+	//[HideInInspector]
 	public bool finishedone,finishedtwo;
 
 	void Start () {
@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour {
 			GameCamera.target = UniverseTwo.transform;
 		}
 
+		if(Input.GetKeyDown (KeyCode.R))
+			Application.LoadLevel(Application.loadedLevel);
+
 		if(UniverseOne == null)
 		{
 			UniverseOne = GameObject.FindGameObjectWithTag("UniverseOne").GetComponent<PlayerController>();
@@ -40,11 +43,38 @@ public class GameManager : MonoBehaviour {
 		{
 			UniverseTwo = GameObject.FindGameObjectWithTag("UniverseTwo").GetComponent<PlayerController>();
 		}
+
+		if(GameCamera.target == null)
+		{
+			GameCamera.target = UniverseOne.transform;
+		}
+
+		if(!UniverseOne.Active && !UniverseTwo.Active)
+			UniverseOne.Active = true;
 	}
 
 	public void UpdateUniverse()
 	{
-		if(finishedone && !finishedtwo)
+		if(finishedone && finishedtwo)
+		{
+			finishedone = false;
+			finishedtwo = false;
+			level++;
+			if(UniverseOne == null)
+			{
+				UniverseOne = GameObject.FindGameObjectWithTag("UniverseOne").GetComponent<PlayerController>();
+			}
+			if(UniverseTwo == null)
+			{
+				UniverseTwo = GameObject.FindGameObjectWithTag("UniverseTwo").GetComponent<PlayerController>();
+			}
+			
+			UniverseOne.Active = true;
+			UniverseTwo.Active = false;
+			GameCamera.target = UniverseOne.transform;
+			Application.LoadLevel(level);
+		}
+		else if(finishedone && !finishedtwo)
 		{
 			UniverseOne.Active = false;
 			UniverseTwo.Active = true;
@@ -56,16 +86,6 @@ public class GameManager : MonoBehaviour {
 			UniverseTwo.Active = false;
 			GameCamera.target = UniverseOne.transform;
 		}
-		else if(finishedone && finishedtwo)
-		{
-			Application.LoadLevel(level);
 
-			UniverseOne.Active = true;
-			UniverseTwo.Active = false;
-			GameCamera.target = UniverseOne.transform;
-			level++;
-			finishedone = false;
-			finishedtwo = false;
-		}
 	}
 }
