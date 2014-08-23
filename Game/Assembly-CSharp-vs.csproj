@@ -49,11 +49,13 @@
      <Compile Include="Assets\Code\Camera\SmoothCamera2D.cs" />
      <Compile Include="Assets\Code\Game\GameManager.cs" />
      <Compile Include="Assets\Code\Game\ResetGameManager.cs" />
+     <Compile Include="Assets\Code\Interactions\BreakTile.cs" />
      <Compile Include="Assets\Code\Interactions\CrateController.cs" />
      <Compile Include="Assets\Code\Interactions\CrateLever.cs" />
      <Compile Include="Assets\Code\Interactions\GravityLever.cs" />
      <Compile Include="Assets\Code\Interactions\Lava.cs" />
      <Compile Include="Assets\Code\Interactions\Portal.cs" />
+     <Compile Include="Assets\Code\Interactions\RemoveWallsLever.cs" />
      <Compile Include="Assets\Code\Interactions\SyncedCrate.cs" />
      <Compile Include="Assets\Code\Player\PlayerController.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
