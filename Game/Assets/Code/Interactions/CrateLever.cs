@@ -35,7 +35,7 @@ public class CrateLever : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.layer == 8)
+		if(col.gameObject.layer == LayerMask.NameToLayer("Player"));
 		{
 			showText = true;
 		}
@@ -43,7 +43,7 @@ public class CrateLever : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D col)
 	{
-		if(col.gameObject.layer == 8)
+		if(col.gameObject.layer == LayerMask.NameToLayer("Player"));
 		{
 			showText = false;
 		}
