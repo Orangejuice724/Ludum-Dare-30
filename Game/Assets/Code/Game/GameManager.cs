@@ -50,6 +50,11 @@ public class GameManager : MonoBehaviour {
 		GameCamera.target = UniverseOne.transform;
 	}
 
+	public void Restart()
+	{
+		Application.LoadLevel(Application.loadedLevel);
+	}
+
 	void Start () {
 		DontDestroyOnLoad (this.gameObject);
 		UniverseOne.Active = true;

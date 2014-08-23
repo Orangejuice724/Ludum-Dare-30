@@ -58,4 +58,17 @@ public class PlayerController : MonoBehaviour {
 		scale.x *= -1;
 		transform.localScale = scale;
 	}
+
+	public void Die()
+	{
+		Active = false;
+		rigidbody2D.AddForce(new Vector2(0, 6000));
+		StartCoroutine(WaitForDeath());
+	}
+
+	IEnumerator WaitForDeath()
+	{
+		yield return new WaitForSeconds(3);
+		GameManager.instance.Restart();
+	}
 }
