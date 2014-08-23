@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
 	public PlayerController UniverseTwo;
 	public SmoothCamera2D GameCamera;
 
+	bool finishedone,finishedtwo;
+
 	void Start () {
 		DontDestroyOnLoad (this.gameObject);
 		UniverseOne.Active = true;
