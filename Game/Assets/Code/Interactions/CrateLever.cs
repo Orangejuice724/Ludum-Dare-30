@@ -22,6 +22,11 @@ public class CrateLever : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.E))
 			{
 				crate.unlocked = true;
+				if(transform.rotation.y >= 1)
+					transform.localRotation = Quaternion.Euler(180, 180, 0);
+				else
+					transform.localRotation = Quaternion.Euler(180, 0, 0);
+				Debug.Log (transform.localRotation);
 				Pressed = true;
 			}
 		}
@@ -35,7 +40,7 @@ public class CrateLever : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.layer == LayerMask.NameToLayer("Player"));
+		if(col.gameObject.layer == LayerMask.NameToLayer("Player")&& col.transform.parent.parent.GetComponent<PlayerController>().Active);
 		{
 			showText = true;
 		}

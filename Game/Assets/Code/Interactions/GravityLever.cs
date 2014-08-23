@@ -22,6 +22,11 @@ public class GravityLever : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.E))
 			{
 				crate.rigidbody2D.gravityScale = 1;
+				if(transform.rotation.y == 180)
+					transform.localRotation = Quaternion.Euler(180, 180, 0);
+				else
+					transform.localRotation = Quaternion.Euler(180, 0, 0);
+				Debug.Log (transform.localRotation);
 				Pressed = true;
 			}
 		}
@@ -35,7 +40,7 @@ public class GravityLever : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.layer == LayerMask.NameToLayer("Player"));
+		if(col.gameObject.layer == LayerMask.NameToLayer("Player") && col.transform.parent.parent.GetComponent<PlayerController>().Active);
 		{
 			showText = true;
 		}
