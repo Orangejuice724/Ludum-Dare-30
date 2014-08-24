@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 	public PlayerController UniverseTwo;
 	public SmoothCamera2D GameCamera;
 
-	int level = 1;
+	public int level = 1;
 
 	public static GameManager instance;
 
@@ -99,8 +99,11 @@ public class GameManager : MonoBehaviour {
 			UniverseOne.Active = true;
 
 		//temporary
-		if(Input.GetKeyDown(KeyCode.Keypad7))
-		   Application.LoadLevel(9);
+		//if(Input.GetKeyDown(KeyCode.Keypad7))
+		//{
+		  // Application.LoadLevel(9);
+			//level = 9;
+		//}
 	}
 
 	//This will be used only if the reset button is pressed when you're on level one, it's a work around as a few components have DontDestroyOnLoad()
