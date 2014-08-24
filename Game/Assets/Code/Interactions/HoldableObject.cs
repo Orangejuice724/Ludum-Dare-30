@@ -42,14 +42,14 @@ public class HoldableObject : MonoBehaviour {
 					{
 						Vector3 pos = pCont.transform.position;
 						pos.x += 1;
-						pos.y += 0.5f;
+						pos.y += 0.3f;
 						transform.position = pos;
 					}
 					else
 					{
 						Vector3 pos = pCont.transform.position;
 						pos.x -= 1;
-						pos.y += 0.5f;
+						pos.y += 0.3f;
 						transform.position = pos;
 					}
 				}
@@ -64,14 +64,14 @@ public class HoldableObject : MonoBehaviour {
 			{
 				Vector3 pos = pCont.transform.position;
 				pos.x += 1;
-				pos.y += 0.5f;
+				pos.y += 0.3f;
 				transform.position = pos;
 			}
 			else
 			{
 				Vector3 pos = pCont.transform.position;
 				pos.x -= 1;
-				pos.y += 0.5f;
+				pos.y += 0.3f;
 				transform.position = pos;
 			}
 			//}

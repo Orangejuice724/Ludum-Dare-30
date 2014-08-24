@@ -1,13 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Interactions\RemoveWallsLever.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\Menu\FadeTextIn.cs">
     <Files>
-      <File FileName="Assets\Code\Game\GameManager.cs" Line="103" Column="29" />
-      <File FileName="Assets\Code\Interactions\CrateLever.cs" Line="24" Column="27" />
-      <File FileName="Assets\Code\Interactions\GravityLever.cs" Line="43" Column="61" />
-      <File FileName="Assets\Code\Interactions\RemoveWallsLever.cs" Line="27" Column="25" />
-      <File FileName="Assets\Code\Player\PlayerController.cs" Line="87" Column="24" />
-      <File FileName="Assets\Code\Interactions\HoldableObject.cs" Line="85" Column="5" />
+      <File FileName="Assets\Code\Camera\Parallax.cs" Line="24" Column="13" />
+      <File FileName="Assets\Code\Interactions\HoldableObject.cs" Line="45" Column="19" />
+      <File FileName="Assets\Code\Menu\MenuManager.cs" Line="24" Column="30" />
+      <File FileName="Assets\Code\Menu\FadeTextIn.cs" Line="18" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

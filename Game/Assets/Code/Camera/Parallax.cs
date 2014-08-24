@@ -4,25 +4,31 @@ using System.Collections;
 public class Parallax : MonoBehaviour {
 
 	private float x;
-	public int offset;
+	public float offset;
 	public bool followCamera;
 
 	void Start () 
 	{
-		x = Camera.main.transform.position.x;
+		x = transform.position.x + 32;
 	}
 
-	void Update () 
+	void FixedUpdate () 
 	{
 		if(followCamera)
 		{
-			Vector3 pos = transform.position;
-			pos.x = (Camera.main.transform.position.x - x)/offset;
-			transform.position = pos;
+			//Vector3 pos = transform.position;
+			//pos.x = ((Camera.main.transform.position.x) - x)/offset;
+			//transform.position = pos;
+
+			Vector3 newPos = transform.position;
+			newPos.x = (x-(Camera.main.transform.position.x/offset));
+			transform.position = newPos;
 		}
 		else
 		{
-
+			Vector3 pos = transform.position;
+			pos.x = (x - Camera.main.transform.position.x)/offset;
+			transform.position = pos;
 		}
 	}
 }
