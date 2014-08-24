@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour {
 	float groundRadius = 0.2f;
 	public LayerMask groundLayer;
 
+	public AudioClip dieAudio;
+	public AudioClip jumpAudio;
+
 	void Start () 
 	{
 
@@ -52,6 +55,8 @@ public class PlayerController : MonoBehaviour {
 			return;
 		if ((grounded)&& (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown (KeyCode.Space))) {
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
+			audio.clip = jumpAudio;
+			audio.Play();
 		}
 
 		if (transform.position.y <= -64)
@@ -79,6 +84,8 @@ public class PlayerController : MonoBehaviour {
 		Active = false;
 		rigidbody2D.AddForce(new Vector2(0, 6000));
 		StartCoroutine(WaitForDeath());
+		audio.clip = dieAudio;
+		audio.Play();
 	}
 
 	IEnumerator WaitForDeath()
